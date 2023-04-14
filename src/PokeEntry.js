@@ -45,6 +45,7 @@ function PokeEntry(props) {
   return (
     <>
       <Card
+        onClick={props.onClick}
         style={{
           backgroundColor: pokemonData.bgColor,
           color: "white",
@@ -53,7 +54,6 @@ function PokeEntry(props) {
       >
         <CardMedia
           component="img"
-          height="70"
           image={pokemonData.image}
           sx={{ objectFit: "contain" }}
         />
