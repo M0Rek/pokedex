@@ -7,6 +7,7 @@ import PokeCard from "./PokeCard";
 export default function Pokedex() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [cardPokemon, setCardPokemon] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const nextPage = () => {
@@ -20,7 +21,10 @@ export default function Pokedex() {
     setCurrentPage(currentPage - 1);
   };
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (pokemon) => {
+    setCardPokemon(pokemon);
+    setOpen(true);
+  };
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
@@ -50,7 +54,7 @@ export default function Pokedex() {
             height: "100%",
           }}
         >
-          <PokeCard />
+          <PokeCard close={handleClose} pokemon={cardPokemon} />
         </Box>
       </Modal>
       <Pagination previous={previousPage} page={currentPage} next={nextPage} />
