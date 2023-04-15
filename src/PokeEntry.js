@@ -34,18 +34,22 @@ function PokeEntry(props) {
       const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + name);
       const data = await response.json();
       setPokemonData({
+        ...data,
         image: data.sprites.front_default,
-        name: data.name,
-        bgColor: typeColors[data.types[0].type.name], //add testing for uknown types
+        bgColor: typeColors[data.types[0].type.name], //TODO: add check for unknown types
       });
     };
     fetchData();
   }, [name]);
 
+  const handleClick = () => {
+    props.onClick(pokemonData);
+  };
+
   return (
     <>
       <Card
-        onClick={props.onClick}
+        onClick={handleClick}
         style={{
           backgroundColor: pokemonData.bgColor,
           color: "white",
