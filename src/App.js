@@ -9,7 +9,7 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Pokedex />} />
+        <Route path="/Pokedex" element={<Pokedex />} />
         <Route path="/About" element={<About />} />
       </Routes>
     </>
