@@ -3,10 +3,10 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Change this to the default branch of your repository, if it's not "main"
+      - master
   pull_request:
     branches:
-      - main # Change this to the default branch of your repository, if it's not "main"
+      - master 
 
 jobs:
   build_and_deploy:
