@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Pokedex from "./Pokedex";
 import About from "./About";
 
@@ -9,7 +9,8 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/Pokedex" element={<Pokedex />} />
+        <Route index element={<Navigate to="/" />} />
+        <Route path="/" element={<Pokedex />} />
         <Route path="/About" element={<About />} />
       </Routes>
     </>

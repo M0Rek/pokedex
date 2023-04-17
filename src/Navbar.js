@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <AppBar sx={{ mb: 2 }} position="static">
       <Toolbar>
-        <NavButton component={Link} to="/Pokedex" color="inherit">
+        <NavButton component={Link} to="/" color="inherit">
           Pokedex
         </NavButton>
         <NavButton component={Link} to="/About" color="inherit">
