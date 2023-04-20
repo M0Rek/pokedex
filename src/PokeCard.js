@@ -16,7 +16,7 @@ export default function PokeCard(props) {
   const pokemon = props.pokemon;
 
   return (
-    <Card>
+    <Card sx={{ maxHeight: "100vh", maxWidth: "100vw" }}>
       <CardHeader title={capitalize(pokemon.name)} />
       <Box sx={{ margin: "16px" }}>
         {pokemon.types.map(({ type }) => (
@@ -36,24 +36,28 @@ export default function PokeCard(props) {
         <Grid item xs={6}>
           <CardContent>
             {console.log(pokemon)}
-              <p>Id: {pokemon.id}</p> 
-              <p>HP: {pokemon.name} Attack: Defense: </p>  
-              <p>Special attack: Special defense: Speed: Base Experience: {pokemon.base_experience} Height: {pokemon.height}</p>
-              <p>Weight: {pokemon.weight} Abilities: Moves:</p>
+            <p>Id: {pokemon.id}</p>
+            <p>
+              Special attack: Special defense: Speed: Base Experience:{" "}
+              {pokemon.base_experience} Height: {pokemon.height}
+            </p>
+            <p>Weight: {pokemon.weight} Abilities: Moves:</p>
           </CardContent>
         </Grid>
         <Grid item xs={6}>
           <CardMedia
             component="img"
             image={pokemon.image}
-            sx={{ objectFit: "contain", maxHeight: "400px" }}
+            sx={{ objectFit: "contain", maxHeight: "50vh" }}
             alt="Image of Pokemon name"
           />
         </Grid>
       </Grid>
 
       <CardActions>
-        <Button onClick={props.close}>Close</Button>
+        <Button variant="contained" color="secondary" onClick={props.close}>
+          Close
+        </Button>
       </CardActions>
     </Card>
   );
