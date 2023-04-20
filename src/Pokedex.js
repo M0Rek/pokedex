@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import PokeEntry from "./PokeEntry";
 import Pagination from "./Pagination";
 import PokeCard from "./PokeCard";
+import PokemonAutocomplete from "./PokemonAutocomplete";
 
 export default function Pokedex() {
   const [open, setOpen] = useState(false);
@@ -38,13 +39,16 @@ export default function Pokedex() {
 
   return (
     <>
-      <Grid container justifyContent="center" spacing={4}>
-        {data.map((item) => (
-          <Grid key={item.name} item lg={2} md={3} sm={4} xs={12}>
-            <PokeEntry onClick={handleOpen} pokemon={item} />
-          </Grid>
-        ))}
-      </Grid>
+      <Box m={4}>
+        <PokemonAutocomplete onPokemonSelected={handleOpen} />
+        <Grid container justifyContent="center" spacing={4}>
+          {data.map((item) => (
+            <Grid key={item.name} item lg={2} md={3} sm={4} xs={12}>
+              <PokeEntry onClick={handleOpen} pokemon={item} />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
       <Modal open={open} onClose={handleClose}>
         <Box
           sx={{
